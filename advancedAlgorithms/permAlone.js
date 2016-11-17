@@ -11,13 +11,26 @@ function permAlone(str) {
 		}
 
 		for (var i in bStr){
-			bStr = bStr.replace(bStr[i],'');
-			recurStr((aStr+bStr[i]),bStr);
+			newbStr = bStr.replace(bStr[i],'');
+			recurStr((aStr+bStr[i]),newbStr);
+		}
+	}
+	
+	recurStr('',str);
+
+	doubleLetters = /(.)\1+/;
+	total = 0;
+
+	for (var i in permArr){
+		if (!permArr[i].match(doubleLetters)){
+			console.log(permArr[i]+" has no doubles");
+			total += 1;
 		}
 	}
 
+	console.log("The total is: " + total);
 
-  return str;
+	return str;
 }
 
-permAlone('abc');
+permAlone('aabc');
