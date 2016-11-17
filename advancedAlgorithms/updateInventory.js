@@ -16,10 +16,20 @@ function updateInventory(arr1, arr2) {
         }    
     }
 
+    function compareInventory(item1, item2){
+    if (item1[1] > item2[1]){
+        return 1;
+    } 
+    return 0;
+    }
+
+    arr1.sort(compareInventory);
     console.log(arr1);
     return arr1;
 
 }
+
+
 
 // Example inventory lists
 var curInv = [
