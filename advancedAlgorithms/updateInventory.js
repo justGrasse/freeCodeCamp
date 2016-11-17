@@ -1,4 +1,3 @@
-
 function updateInventory(arr1, arr2) {
     // All inventory must be accounted for or you're fired!
 
@@ -8,10 +7,10 @@ function updateInventory(arr1, arr2) {
 
     for (var i = 0; i < arr2.length; i++){
         // If the item exists
-        if (itemList.indexOf(arr2[i][1])){
-          console.log("One index: " + itemList.indexOf(arr2[i][1]));
-          //arr1[itemList.indexOf(arr2[i][1])][0] += arr2[i][0];
-        } else{
+        if (itemList.indexOf(arr2[i][1])>=0){
+            idx = itemList.indexOf(arr2[i][1]);
+            arr1[idx][0] += arr2[i][0];
+        } else {
           itemList.push(arr2[i][1]);
           arr1.push(arr2[i]);
         }    
