@@ -30,7 +30,7 @@ function permAlone(str) {
 
 	console.log("The total is: " + total);
 
-	return str;
+	return total;
 }
 
 permAlone('aabc');
