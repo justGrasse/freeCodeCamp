@@ -1,0 +1,23 @@
+body {
+	background-color: black;
+}
+
+table {
+	background-color: blue;
+	padding: 2em;
+	box-shadow: 0.2em 0.2em 0.5em gray;
+}
+
+th {
+	text-align: right;
+	background-color: black;
+	color: white;
+	padding: 0.6em;
+}
+
+button {
+	width: 3em;
+	height: 3em;
+	padding: 1em;
+	font-size: 100%;
+}
