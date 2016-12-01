@@ -28,33 +28,25 @@ $(document).ready(function(){
 		opr_str = '';		
 	}
 
-// TESTS
-
-printError();
-
-// printScreen();
-
-// num_str += "Ike's got Poo-Brain!";
-// printScreen();
-
+	
+	// TESTS
+	// ...
 
 /*
 	PSEUDO-CODE
 	- initialize num_str, op_str
-	- IF Number
+	- initialize num_1, num_2, num_solution
+	
+	BUTTON OPERATOR
+	- IF Number.click
 		- Push to num_str
-	- ELSE IF Operator AND opr_str.empty
+	- ELSE IF Operator.click AND opr_str.empty
 		- Note Operator
 		- Set num_1 = parseInt(num_str)
 		- Initialize num_str
-	- ELSE IF Operator 
+	- ELSE IF Operator.click 
 		- 
  
-	SCREEN:
-	- IF num_str is empty or 0
-		- Display 0
-	- ELSE 
-		- Display num_str
 
 					*/
 
