@@ -1,9 +1,9 @@
 $(document).ready(function(){
 
-	var num_str = "";	// Number String
+	var num_str = '0';	// Number String
 	var num_1, num_2, num_solution;
-	var opr_str = "";	// Operator String
-	var screen = $("#screen");
+	var opr_str = '';	// Operator String
+	var screen = $('#screen');
 
 	// printScreen(): Prints num_str or input message
 	function printScreen(message){
@@ -18,15 +18,41 @@ $(document).ready(function(){
 		};
 	}
 
-	// printError(): Prints Error and resets parameters
+	// printError(): Prints Error
 	function printError(){
 		screen.text('ERROR: You got Poo Brain!');
-		num_str = '';
+		clearData();
+	}
+
+	function clearData(){
+		num_str = '0';
 		num_1 = null;		
 		num_2 = null;		
 		num_solution = null;
-		opr_str = '';		
+		opr_str = '';	
 	}
+
+
+	$(".num").click(function(){
+		if (num_str == '0') num_str = '';		
+		num_str += $(this).attr('id');
+		printScreen();
+	})
+	
+	$(".opr").click(function(){
+		opr_str = $(this).attr('id');
+		if (num_1 == undefined) {
+			num_1 = parseInt(num_str);
+			num_str = '';
+		} else {
+			
+		}
+	})
+	
+	$("#AC").click(function(){
+		clearData();
+		printScreen();
+	})
 
 	
 	// TESTS
@@ -40,6 +66,8 @@ $(document).ready(function(){
 	BUTTON OPERATOR
 	- IF Number.click
 		- Push to num_str
+		- IF num_str = '0'
+			- Initialize num_str = ''
 	- ELSE IF Operator.click AND opr_str.empty
 		- Note Operator
 		- Set num_1 = parseInt(num_str)
