@@ -16,8 +16,13 @@ th {
 }
 
 button {
+	background-color: gray;
 	width: 3em;
 	height: 3em;
 	padding: 1em;
 	font-size: 100%;
+}
+
+#screen {
+	height: 40px;
 }

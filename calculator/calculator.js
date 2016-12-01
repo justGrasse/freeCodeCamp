@@ -1,26 +1,80 @@
 $(document).ready(function(){
 
-	var num_str = "";	// Number String
-	var num_1, num_2;
-	var opr_str = "";	// Operator String
+	var num_str = '0';	// Number String
+	var num_1, num_2, num_solution;
+	var opr_str = '';	// Operator String
+	var screen = $('#screen');
+
+	// printScreen(): Prints num_str or input message
+	function printScreen(message){
+		if (message != undefined){
+			screen.text(message);
+		}
+		else if (num_str == '0' || num_str == '') {
+			screen.text('0');
+		} 
+		else {
+			screen.text(num_str);
+		};
+	}
+
+	// printError(): Prints Error
+	function printError(){
+		screen.text('ERROR: You got Poo Brain!');
+		clearData();
+	}
+
+	function clearData(){
+		num_str = '0';
+		num_1 = null;		
+		num_2 = null;		
+		num_solution = null;
+		opr_str = '';	
+	}
+
+
+	$(".num").click(function(){
+		if (num_str == '0') num_str = '';		
+		num_str += $(this).attr('id');
+		printScreen();
+	})
+	
+	$(".opr").click(function(){
+		opr_str = $(this).attr('id');
+		if (num_1 == undefined) {
+			num_1 = parseInt(num_str);
+			num_str = '';
+		} else {
+			
+		}
+	})
+	
+	$("#AC").click(function(){
+		clearData();
+		printScreen();
+	})
+
+	
+	// TESTS
+	// ...
 
 /*
 	PSEUDO-CODE
 	- initialize num_str, op_str
-	- IF Number
+	- initialize num_1, num_2, num_solution
+	
+	BUTTON OPERATOR
+	- IF Number.click
 		- Push to num_str
-	- ELSE IF Operator AND opr_str.empty
+		- IF num_str = '0'
+			- Initialize num_str = ''
+	- ELSE IF Operator.click AND opr_str.empty
 		- Note Operator
 		- Set num_1 = parseInt(num_str)
 		- Initialize num_str
-	- ELSE IF Operator 
+	- ELSE IF Operator.click 
 		- 
  
-	SCREEN:
-	- IF num_str is empty or 0
-		- Display 0
-	- ELSE 
-		- Display num_str
 
 					*/
 
