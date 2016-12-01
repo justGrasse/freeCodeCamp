@@ -1,8 +1,42 @@
 $(document).ready(function(){
 
 	var num_str = "";	// Number String
-	var num_1, num_2;
+	var num_1, num_2, num_solution;
 	var opr_str = "";	// Operator String
+	var screen = $("#screen");
+
+	// printScreen(): Prints num_str or input message
+	function printScreen(message){
+		if (message != undefined){
+			screen.text(message);
+		}
+		else if (num_str == '0' || num_str == '') {
+			screen.text('0');
+		} 
+		else {
+			screen.text(num_str);
+		};
+	}
+
+	// printError(): Prints Error and resets parameters
+	function printError(){
+		screen.text('ERROR: You got Poo Brain!');
+		num_str = '';
+		num_1 = null;		
+		num_2 = null;		
+		num_solution = null;
+		opr_str = '';		
+	}
+
+// TESTS
+
+printError();
+
+// printScreen();
+
+// num_str += "Ike's got Poo-Brain!";
+// printScreen();
+
 
 /*
 	PSEUDO-CODE
