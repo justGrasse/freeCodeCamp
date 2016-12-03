@@ -31,6 +31,24 @@ $(document).ready(function(){
 		opr_str = '';	
 	}
 
+	function doMath(){
+		switch(opr_str){
+			case '+':
+				num_solution = num_1 + num_2;
+				break;
+			case '-':
+				num_solution = num_1 - num_2;
+				break;
+			case 'x':
+				num_solution = num_1 * num_2;
+				break;
+			case '/':
+				num_solution = num_1 / num_2;
+				break;
+			}
+	}
+
+	// CALCULATOR FUNCTIONS
 
 	$(".num").click(function(){
 		if (num_str == '0') num_str = '';		
@@ -43,28 +61,17 @@ $(document).ready(function(){
 		if (num_1 == undefined) {
 			num_1 = parseFloat(num_str);
 			num_str = '';
-		} else {
+		} else if (opr_str == undefined) {
 			opr_str = $(this).attr('id'); 
+		} else if (num_solution == undefined) {
+
 		}
 	})
 
 	$("#eq").click(function(){
 		if (num_1 != undefined && opr_str != undefined) {
 			num_2 = parseFloat('0'+num_str)
-			switch(opr_str){
-				case '+':
-					num_solution = num_1 + num_2;
-					break;
-				case '-':
-					num_solution = num_1 - num_2;
-					break;
-				case 'x':
-					num_solution = num_1 * num_2;
-					break;
-				case '/':
-					num_solution = num_1 / num_2;
-					break;
-			}
+			doMath()
 			printScreen(num_solution);
 			clearData();
 		}
@@ -80,6 +87,15 @@ $(document).ready(function(){
 		clearData();
 		printScreen();
 	})
+
+	// GRAPHICAL QUIRKS
+
+	$("#screen").hover(function(){
+		$(this).css('background-color','#666');
+		}, function(){
+		$(this).css('background-color','#222');
+		}
+	)
 
 
 	// TESTS

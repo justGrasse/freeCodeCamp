@@ -2,7 +2,14 @@ body {
 	background-color: black;
 }
 
+h1, p {
+	color: white;
+	font-family: Helvetica;
+	text-align: center;
+}
+
 table {
+	margin: auto;
 	background-color: blue;
 	padding: 2em;
 	box-shadow: 0.2em 0.2em 0.5em gray;
@@ -25,4 +32,5 @@ button {
 
 #screen {
 	height: 40px;
+	background-color: #222;
 }
