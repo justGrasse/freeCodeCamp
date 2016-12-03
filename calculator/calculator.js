@@ -28,7 +28,6 @@ $(document).ready(function(){
 		num_str = '0';
 		num_1 = null;		
 		num_2 = null;		
-		num_solution = null;
 		opr_str = '';	
 	}
 
@@ -42,19 +41,47 @@ $(document).ready(function(){
 	$(".opr").click(function(){
 		opr_str = $(this).attr('id');
 		if (num_1 == undefined) {
-			num_1 = parseInt(num_str);
+			num_1 = parseFloat(num_str);
 			num_str = '';
 		} else {
-			
+			opr_str = $(this).attr('id'); 
+		}
+	})
+
+	$("#eq").click(function(){
+		if (num_1 != undefined && opr_str != undefined) {
+			num_2 = parseFloat('0'+num_str)
+			switch(opr_str){
+				case '+':
+					num_solution = num_1 + num_2;
+					break;
+				case '-':
+					num_solution = num_1 - num_2;
+					break;
+				case 'x':
+					num_solution = num_1 * num_2;
+					break;
+				case '/':
+					num_solution = num_1 / num_2;
+					break;
+			}
+			printScreen(num_solution);
+			clearData();
 		}
 	})
 	
-	$("#AC").click(function(){
+	$("#dec").click(function(){
+		if (num_str == '') num_str = '0';		
+		num_str += '.';
+		printScreen();
+	})	
+
+	$("#screen").click(function(){
 		clearData();
 		printScreen();
 	})
 
-	
+
 	// TESTS
 	// ...
 
